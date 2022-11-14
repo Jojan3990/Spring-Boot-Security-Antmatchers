@@ -42,7 +42,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT,"/api/v1/products/{productId}").hasRole(ADMIN.name())
                 .antMatchers("/api/v1/products/add").hasAnyRole(ADMIN.name(),SUPERVISOR.name())
                 .antMatchers("/api/v1/products").hasAnyRole(ADMIN.name(), SUPERVISOR.name(),INTERN.name())
-                .antMatchers("/api/v1/products{productId}").hasAnyRole(ADMIN.name(), SUPERVISOR.name(), INTERN.name()) // All three users should be able to get a product by id.
+                .antMatchers("/api/v1/products/{productId}").hasAnyRole(ADMIN.name(), SUPERVISOR.name(), INTERN.name()) // All three users should be able to get a product by id.
                 .anyRequest()
                 .authenticated()
                 .and()
